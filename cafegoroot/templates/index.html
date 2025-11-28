@@ -1,0 +1,16 @@
+<h1>CafeGo</h1>
+
+{{ if .Username }}
+    <p>Welcome, {{ .Username }}!</p>
+{{ end }}
+<a href="/login">Login</a>
+
+<p>Welcome, {{ .Username }}!</p>
+<!-- In index.html. Place this inside the user block so it won't render if there's no user. -->
+<a href="/cart">View my cart</a>
+
+<ul>
+    {{ range $p := .Products }}
+        <li><a href="/product/{{ $p.Id }}">{{ $p.Name }}</a> - PHP {{ $p.Price }}</li>
+    {{ end }}
+</ul>
